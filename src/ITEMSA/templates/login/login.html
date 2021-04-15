@@ -1,0 +1,20 @@
+{% extends  'base/homepage.html' %}
+{% load bootstrap %}
+
+{% block section %}
+<main class="form-signin">
+    <form class="form-group" autocomplete="off" role="group" method="post" action="">
+        <img class="mb-2" src="static/bootstrap/img/user.png" alt="" width="72" height="57">
+        <h1 class="h3 mb-2 fw-normal">Acceso al Sistema</h1>
+        <div class="form-floating">
+            {% csrf_token %}
+            {{ login_form|bootstrap}}
+        </div>
+            <button id="login" data-toggle="Ingresar" data-placement="left" class="w-100 btn btn-lg btn-primary" data-title="Ingresar Aqui" type="submit">Iniciar Sesión</button>
+    </form>
+    <div class="modal-footer" style="font-size:11px;">
+        <center>&copy;2021 <strong>ITEMSA SAC</strong><i class="bi bi-upc"></i> Todos los Derechos Reservados</center>
+    </div>
+</main>
+{% endblock %}
+
