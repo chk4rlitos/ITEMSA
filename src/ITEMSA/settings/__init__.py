@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "bootstrap5", 
-    'bootstrapform',    
+    "bootstrap5",
+    'bootstrapform',
     'crispy_forms',
-    'ITEMSA.apps.Projects.apps',   
+    'ITEMSA.apps.Projects',
 ]
 
 MIDDLEWARE = [
