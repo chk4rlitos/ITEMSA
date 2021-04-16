@@ -5,6 +5,7 @@ from .forms import LoginForm
 from django.template.response import TemplateResponse
 from django.contrib.auth import authenticate, login as register_login, logout
 from django.contrib import messages
+from .models import Persona
 
 # Create your views here.
 
@@ -19,6 +20,21 @@ class Dashboard(TemplateView):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+class ListPersonal(ListView):
+    template_name = 'persona/lista_persona.html'
+    paginate_by = 20
+    model = Persona
+    context_object_name = 'usuario'
+
+
+    def get_queryset(self):
+        queryset = super(ListPersonal, self).get_queryset()
+        return queryset
+
+    def get_context_data(self, **context):
+        return super(ListPersonal, self).get_context_data(**context)
     
 
 def login(request):

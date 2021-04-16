@@ -1,6 +1,6 @@
 :root{
     --width:300 px;
-    --padding: 10px;
+    --padding: 5px;
     --bgcolor:#212529!important;
     --hovercolor:rgb(23,23,23);
     --width-collapsed:50px;
@@ -19,6 +19,21 @@ body{
 }
 #main-container{
     color:white;
+}
+.wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;    
+}
+
+/* Elementos hijo directamente (que serían: nav y content) */
+.wrapper > * {
+    overflow: auto;
+    flex: 1 1 auto;
 }
 #sidemenu{
     background-color: var(--bgcolor);
@@ -61,7 +76,7 @@ body{
     background-color: #fff;
     width: 100%;
     height: 2px;
-    margin:  5px 0;
+    margin:  4px 0;
 }
 
 #sidemenu #profile{
@@ -129,14 +144,14 @@ body{
 }
 
 #sidemenu #menu-items .item.separator{
-    height: 1px;
+    height: 0px;
     border-bottom: solid 1px var(--hovercolor);
-    margin: 15px 0;
+    margin: 6px 0;
 }
 
 .menu-expanded{
     width: var(--width);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 70px rgba(0,0,0,0.5);
 }
 
 .menu-expanded #header #title {
@@ -173,8 +188,14 @@ body{
 .menu-collapsed #profile #name{
     display: none;
 }
+.menu-collapsed #profile #photo{
+    display: none;
+}
 .menu-collapsed .item{
     width: 100px;
+}
+.menu-collapsed #menu-items .item{
+    height: 50px;
 }
 
 .menu-collapsed #menu-items .item .title span{
@@ -188,4 +209,9 @@ body{
 .tab{
     padding-top: 1%;
     padding-left: 2%;
+}
+
+.letra-containter{
+    font-size: 11px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

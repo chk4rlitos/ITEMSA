@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Itemsa</title>
-    <!-- Bootstrap core CSS -->
-    <!-- <link rel="stylesheet" href="/static/bootstrap/fonts/icons.css"> -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <!-- Custom styles for this template -->
@@ -18,59 +16,68 @@
 
 </head>
 <body>
+        <div class="">
+            <div id="sidemenu" class="menu-expanded">
+                <div id="header">
+                        <div id="menu-btn">
+                            <div class="btn-hamburger"></div>
+                            <div class="btn-hamburger"></div>
+                            <div class="btn-hamburger"></div>
+                        </div>
+                </div>
+                <div id="profile">
+                    <a href="{%  url 'dashboard'  request.user.pk %}">
+                        <div id="photo"><img src="/static/bootstrap/img/icons/itemsa.ico" alt=""></div>
+                    </a>
+                    <div id="name"><span> {% if request.user.is_authenticated %} {{request.user.first_name }}{% endif %}   </span></div>
+                </div>
 
-    <div id="sidemenu" class="menu-expanded">
-        <div id="header">
-            <div id="title"><span>Menu</span></div>
-            <div id="menu-btn">
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-            </div>
-        </div>
-        <div id="profile">
-            <div id="photo"><img src="/static/bootstrap/img/icons/itemsa.ico" alt=""></div>
-            <div id="name"><span> {% if request.user.is_authenticated %} {{request.user.first_name }}{% endif %}   </span></div>
-        </div>
-
-        <div id="menu-items">
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/personal.png" alt=""></div>
-                    <div class="title"><span>Personal</span></div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/project-management.png" alt=""></div>
-                    <div class="title"><span>Proyectos</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/activities.png" alt=""></div>
-                    <div class="title"><span>Actividades</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/cuentas.png" alt=""></div>
-                    <div class="title"><span>Cuentas</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/config.png" alt=""></div>
-                    <div class="title"><span>Configurador</span></div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="/logout">
-                    <div class="icon"><img src="/static/bootstrap/img/exit.png" alt=""></div>
-                    <div class="title"><span>Salir</span></div>
-                </a>
+                <div id="menu-items">
+                    <div class="item">
+                        <a href="{%  url 'listar_personal'  request.user.pk %}">
+                            <div class="icon"><img src="/static/bootstrap/img/personal.png" alt=""></div>
+                            <div class="title"><span>Personal</span></div>
+                        </a>
+                    </div>
+                    <div class="item separator"></div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="/static/bootstrap/img/project-management.png" alt=""></div>
+                            <div class="title"><span>Proyectos</span></div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="/static/bootstrap/img/activities.png" alt=""></div>
+                            <div class="title"><span>Actividades</span></div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="/static/bootstrap/img/cuentas.png" alt=""></div>
+                            <div class="title"><span>Cuentas</span></div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="/static/bootstrap/img/config.png" alt=""></div>
+                            <div class="title"><span>Configurador</span></div>
+                        </a>
+                    </div>
+                    <div class="item separator"></div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="/static/bootstrap/img/reportes.png" alt=""></div>
+                            <div class="title"><span>Reportes</span></div>
+                        </a>
+                    </div>
+                    <div class="item separator"></div>
+                    <div class="item">
+                        <a href="/logout">
+                            <div class="icon"><img src="/static/bootstrap/img/exit.png" alt=""></div>
+                            <div class="title"><span>Salir</span></div>
+                        </a>
+                    </div>
             </div>
         </div>
     </div>
