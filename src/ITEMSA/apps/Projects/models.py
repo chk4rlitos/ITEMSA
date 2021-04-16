@@ -10,20 +10,22 @@ from django.template import defaultfilters
 class Persona(models.Model):
     nombre = models.CharField(max_length=50, verbose_name="Nombres", null=True)
     apellidos = models.CharField(max_length=100, verbose_name="Apellidos", null=True)
+    direccion = models.CharField(max_length=200, verbose_name="Direccion", null=True)
     tipodocumento = models.CharField(max_length=20, choices=constants.TIPO_DOCUMENTO_PERSONA, verbose_name="Tipo de Documento", null=True)
     documento = models.CharField(max_length=11, verbose_name="Documento")
+    estado_civil = models.CharField(max_length=20, choices=constants.ESTADO_CIVIL, verbose_name="Estado Civil", null=True)
     telefono_principal = models.CharField(max_length=10, verbose_name="N° Celular")
-    telefono_secundario = models.CharField(max_length=10, verbose_name="N° Teléfono")
+    telefono_secundario = models.CharField(max_length=10, verbose_name="N° Teléfono", blank=True)
     email = models.EmailField(max_length=60,verbose_name="Correo Electrónico")
     fecha = models.DateField(auto_now=True, null=True)
     hora = models.TimeField(auto_now=True,  null=True)
-    estado = models.BooleanField(default=False, verbose_name="¿Activo?")
+    estado = models.BooleanField(default=True, verbose_name="¿Activo?")
 
     def save(self):
         super(Persona,self).save()
 
-    def __unicode__(self):
-        return str(self.apellidos +'-' + self.nombre)
+    def __str__(self):
+        return str(self.apellidos + ',' + self.nombre)
 
     class Meta:
         app_label = 'Projects'
@@ -35,21 +37,24 @@ class Personal(models.Model):
     cargo = models.CharField(max_length=100,verbose_name="Cargo")
     fecha = models.DateField(auto_now=True, null=True)
     hora = models.TimeField(auto_now=True,  null=True)
-    estado = models.BooleanField(default=False, verbose_name="¿Activo?")
+    estado = models.BooleanField(default=True, verbose_name="¿Activo?")
     
-    def __unicode__(self):
+    def __str__(self):
         return str(self.persona)
 
     class Meta:
         ordering = ['tipo_trabajador']
+        verbose_name = "Personal"
+        verbose_name_plural = "Personal"
 
 class PersonalUsuario(models.Model):
-    usuariopersonal = models.OneToOneField(User,on_delete=models.CASCADE, unique=True)
+    usuariopersonal = models.OneToOneField(User,on_delete=models.CASCADE, unique=True, verbose_name="Usuario")
+    personal = models.OneToOneField(Personal,on_delete=models.CASCADE, unique=True, verbose_name="Personal")
     fecha = models.DateField(auto_now=True, null=True)
     hora = models.TimeField(auto_now=True,  null=True)
-    estado = models.BooleanField(default=False, verbose_name="¿Activo?")
+    estado = models.BooleanField(default=True, verbose_name="¿Activo?")
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.usuariopersonal)
 
     class Meta:

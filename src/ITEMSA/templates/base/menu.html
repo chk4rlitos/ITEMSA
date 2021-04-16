@@ -29,21 +29,46 @@
             </div>
         </div>
         <div id="profile">
-            <div id="photo"><img src="/static/bootstrap/img/user-circle.png" alt=""></div>
+            <div id="photo"><img src="/static/bootstrap/img/icons/itemsa.ico" alt=""></div>
             <div id="name"><span> {% if request.user.is_authenticated %} {{request.user.first_name }}{% endif %}   </span></div>
         </div>
 
         <div id="menu-items">
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="/static/bootstrap/img/logo.png" alt=""></div>
-                    <div class="title"><span>Servicios</span></div>
+                    <div class="icon"><img src="/static/bootstrap/img/personal.png" alt=""></div>
+                    <div class="title"><span>Personal</span></div>
+                </a>
+            </div>
+            <div class="item separator"></div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="/static/bootstrap/img/project-management.png" alt=""></div>
+                    <div class="title"><span>Proyectos</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="/static/bootstrap/img/activities.png" alt=""></div>
+                    <div class="title"><span>Actividades</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="/static/bootstrap/img/cuentas.png" alt=""></div>
+                    <div class="title"><span>Cuentas</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="/static/bootstrap/img/config.png" alt=""></div>
+                    <div class="title"><span>Configurador</span></div>
                 </a>
             </div>
             <div class="item separator"></div>
             <div class="item">
                 <a href="/logout">
-                    <div class="icon"><img src="/static/bootstrap/img/logout.png" alt=""></div>
+                    <div class="icon"><img src="/static/bootstrap/img/exit.png" alt=""></div>
                     <div class="title"><span>Salir</span></div>
                 </a>
             </div>

@@ -4,6 +4,12 @@ from django.contrib.admin import ModelAdmin
 
 # Register your models here.
 
-admin.site.register(Persona)
-admin.site.register(Personal)
+class PersonaAdmin(admin.ModelAdmin):
+    list_display = ['nombre','apellidos', 'tipodocumento', 'documento','estado' ] 
+
+class PersonalAdmin(admin.ModelAdmin):
+    list_display = ['persona','tipo_trabajador', 'cargo', 'estado' ] 
+
+admin.site.register(Persona,PersonaAdmin)
+admin.site.register(Personal,PersonalAdmin)
 admin.site.register(PersonalUsuario)
